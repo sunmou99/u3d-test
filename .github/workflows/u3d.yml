@@ -19,6 +19,8 @@ jobs:
       - name: Set the Env
         shell: bash
         run: |
+          echo "LC_ALL=en_US.UTF-8" >> $GITHUB_ENV
+          echo "LANG=en_US.UTF-8" >> $GITHUB_ENV
           echo "U3D_PASSWORD=" >> $GITHUB_ENV
           echo "U3D_SKIP_UPDATE_CHECK=1" >> $GITHUB_ENV
       - name: Install Unity installer (U3D)
