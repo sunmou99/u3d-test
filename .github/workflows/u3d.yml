@@ -26,12 +26,16 @@ jobs:
       - name: U3D help
         shell: bash
         run: |
-          u3d --help
+          u3d available --help
       - name: List Unity Versions
         shell: bash
         run: |
           u3d available --trace
-      - name: List Unity Versions
+      - name: List Unity Packages
         shell: bash
         run: |
-          u3d available -p --trace
+          u3d available -u 2020.3.34f1 -p --trace
+      - name: Install Unity Versions
+        shell: bash
+        run: |
+          u3d install 2020.3.34f1
