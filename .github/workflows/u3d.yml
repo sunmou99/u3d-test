@@ -16,10 +16,14 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{matrix.ruby_version}}
+      - name: Set the Env
+        shell: bash
+        run: |
+          echo "U3D_SKIP_UPDATE_CHECK=1" >> $GITHUB_ENV
       - name: Install Unity installer (U3D)
         shell: bash
         run: gem install u3d -v ${{matrix.u3d_version}}
       - name: List Unity Versions
         shell: bash
         run: |
-          u3d available
+          u3d available -p
