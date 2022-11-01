@@ -31,7 +31,7 @@ jobs:
       - name: List Unity Versions
         shell: bash
         run: |
-          u3d available --trace
+          u3d available -f --trace
       - name: List Unity Packages
         shell: bash
         run: |
