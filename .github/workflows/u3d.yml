@@ -1,0 +1,25 @@
+name: U3D tests
+
+on:
+  workflow_dispatch
+
+jobs:
+  u3d_testing:
+    runs-on: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['windows-latest', 'macos-latest']
+        u3d_version: [12.3, 13.0, 13.1, 13.2]
+        ruby_version: [2.6.10, 3.0.4, 3.1.2]
+    steps:
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{matrix.ruby_version}}
+      - name: Install Unity installer (U3D)
+        shell: bash
+        run: gem install u3d -v ${{matrix.u3d_version}}
+      - name: List Unity Versions
+        hell: bash
+        run: |
+          u3d available
