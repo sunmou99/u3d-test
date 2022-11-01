@@ -20,6 +20,6 @@ jobs:
         shell: bash
         run: gem install u3d -v ${{matrix.u3d_version}}
       - name: List Unity Versions
-        hell: bash
+        shell: bash
         run: |
           u3d available
