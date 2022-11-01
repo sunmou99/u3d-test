@@ -39,6 +39,7 @@ jobs:
         run: |
           u3d available -u 2020.3.34f1 -p --trace
       - name: Install Unity Versions
+        if: ${{ !cancelled() }}
         shell: bash
         run: |
           u3d install 2020.3.34f1 --trace
