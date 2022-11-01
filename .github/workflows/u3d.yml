@@ -38,4 +38,4 @@ jobs:
       - name: Install Unity Versions
         shell: bash
         run: |
-          u3d install 2020.3.34f1
+          sudo u3d install 2020.3.34f1 --trace
