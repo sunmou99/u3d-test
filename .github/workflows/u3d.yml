@@ -10,8 +10,8 @@ jobs:
       fail-fast: false
       matrix:
         os: ['windows-latest', 'macos-latest', 'ubuntu-latest']
-        u3d_version: [1.2.3, 1.3.0, 1.3.1, 1.3.2]
-        ruby_version: [2.6.10, 3.0.4, 3.1.2]
+        u3d_version: [1.2.3, 1.3.2]
+        ruby_version: [2.6.10, 3.1.2]
     steps:
       - uses: ruby/setup-ruby@v1
         with:
@@ -23,6 +23,10 @@ jobs:
       - name: Install Unity installer (U3D)
         shell: bash
         run: gem install u3d -v ${{matrix.u3d_version}}
+      - name: U3D help
+        shell: bash
+        run: |
+          u3d --help
       - name: List Unity Versions
         shell: bash
         run: |
